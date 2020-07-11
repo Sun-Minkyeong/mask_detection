@@ -2,7 +2,7 @@
 
 Face and mask detection using CNN
 
-![result.png](imgs/result.png)
+![result.png](result.png)
 
 ## Requirement
 
