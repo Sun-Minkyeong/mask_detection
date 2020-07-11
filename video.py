@@ -2,6 +2,7 @@ from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.models import load_model
 import numpy as np
 import cv2
+import winsound
 
 # facenet : 얼굴을 찾는 모델
 facenet = cv2.dnn.readNet('models/deploy.prototxt', 'models/res10_300x300_ssd_iter_140000.caffemodel')
@@ -68,6 +69,9 @@ while cap.isOpened():
         else:
             color = (0, 0, 255)
             label = 'No Mask %d%%' % (nomask * 100)
+            frequency = 2500  # Set Frequency To 2500 Hertz
+            duration = 1000  # Set Duration To 1000 ms == 1 second
+            winsound.Beep(frequency, duration)
 
         # 화면에 얼굴부분과 마스크 유무를 출력해해줌
         cv2.rectangle(result_img, pt1=(x1, y1), pt2=(x2, y2), thickness=2, color=color, lineType=cv2.LINE_AA)
